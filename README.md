@@ -55,7 +55,7 @@ To improve generalization and robustness, several techniques were applied:
 
 To further assess model reliability:
 
-- Cross-validation was performed, but the training and validation performances varied considerably, showing an unsteady degree of overfitting depending on the composition of the datasets used.
+- Cross-validation was performed, but the training and validation performances varied considerably across the folds. This resulted in an unsteady degree of overfitting, which was influenced by the composition of the datasets used.
 
 ### Model Selection
 
@@ -91,6 +91,12 @@ The observed performance gap between the validation and test sets indicates a **
 ![Figure 2 - Learning Curves](results/learning_training_vs_validation.png)
 
 **Fig. 2:** Learning curves for training and validation sets. The discrepancy in accuracy and loss between the training and validation sets is an evident sign of overfitting. Specifically, there is a considerable gap between the training and validation accuracy as both sets reach their respective plateaus.
+
+### Figure 3. ROC Curves - Cross-Validation
+
+![Figure 3 - ROC Curves Cross-Validation](results/roc_cross_validation.png)
+
+**Fig. 3:** The ROC curves from the cross-validation folds illustrate variability in model performance, with fluctuations depending on the data split. These fluctuations suggest potential issues with generalization, indicating that the model may be overfitting to certain subsets of the data.
 
 ## Key Insights
 
