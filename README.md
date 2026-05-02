@@ -156,8 +156,13 @@ This project was developed and trained using Google Colab and Kaggle environment
 
 To explore the project locally:
 
+```bash
 pip install -r requirements.txt
-jupyter notebook notebooks/model_development.ipynb
+jupyter notebook
+```
+
+Then open:
+`notebooks/model_development.ipynb`
 
 Alternatively, you can run the notebook directly on Google Colab or Kaggle.
 
