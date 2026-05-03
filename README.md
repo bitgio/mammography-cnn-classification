@@ -187,8 +187,8 @@ Focus on Machine Learning, Data Analysis, and Scientific Programming
 
 ## Key Takeaways
 
-- Built and trained CNN models for medical image classification using real-world dataset
-- Applied deep learning techniques including regularization and data augmentation to improve generalization
+- Built and trained CNN models for medical image classification using a real-world dataset
+- Applied deep learning techniques, including regularization and data augmentation, to improve model generalization
 - Evaluated model performance using clinically relevant metrics such as ROC-AUC
-- Investigated model interpretability using Grad-CAM, including both correct and failure cases
-- Gained experience in handling medical imaging data and its specific challenges
+- Investigated model interpretability using Grad-CAM, analyzing both correct predictions and failure cases
+- Gained hands-on experience with medical imaging data, including preprocessing and domain-specific challenges
