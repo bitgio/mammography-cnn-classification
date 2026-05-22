@@ -4,7 +4,11 @@
 
 This project explores the use of Convolutional Neural Networks (CNNs) for breast cancer detection from mammography images using publicly available medical datasets.
 
-Early detection of breast cancer is critical for improving patient outcomes. This project aims to investigate deep learning techniques for automated classification while also providing interpretability through visualization methods.
+In addition to deep learning model development, the project includes a structured exploratory data analysis (EDA) workflow based on Pandas and SQL to validate data quality, analyze clinical metadata, and support reproducible machine learning experimentation.
+
+The repository is organized as an end-to-end workflow including data preprocessing, exploratory analysis, CNN training, evaluation, and Grad-CAM-based model explainability.
+
+Early detection of breast cancer is critical for improving patient outcomes. This project aims to investigate deep learning techniques for automated classification while also improving transparency through medical imaging visualization methods.
 
 ## Dataset
 
@@ -23,8 +27,34 @@ However, you can access and download the dataset directly from [The Cancer Imagi
 - Binary classification of mammograms (benign vs malignant)
 - Evaluate CNN performance using accuracy and ROC-AUC
 - Provide model interpretability using Grad-CAM
+- Perform exploratory data analysis and metadata validation using Pandas and SQL
+- Assess dataset consistency, patient-level leakage, and class distribution prior to model training
 
 ## Methodology
+
+### Exploratory Data Analysis
+
+Before model development, a structured exploratory data analysis workflow was conducted on mammography clinical data and imaging metadata.
+
+The analysis included:
+
+- clinical and metadata integration
+- composite key construction for reliable merging
+- missing and duplicated values assessment
+- pathology class distribution analysis
+- breast density and mass shape exploration
+- patient-level redundancy and leakage analysis
+- SQL-based analytical validation using SQLite
+- training/test schema consistency checks
+
+The EDA pipeline was implemented using:
+
+- Pandas
+- SQLite
+- Matplotlib
+- Seaborn
+
+This phase improved dataset transparency, reproducibility, and overall data quality prior to CNN model training.
 
 ### Model Development
 
@@ -59,8 +89,7 @@ To further assess model reliability:
 
 ### Model Selection
 
-Different models were systematically compared based on validation performance,
-allowing the selection of the most effective architecture.  
+Different CNN architectures were systematically compared based on validation performance, leading to the selection of the best-performing model.  
 
 ## Results
 
@@ -100,45 +129,42 @@ The observed performance gap between the validation and test sets indicates a **
 
 ## Key Insights
 
-- A significant gap between validation and test performance indicates overfitting behavior.
-- Model performance does not fully generalize to unseen data, suggesting a need for better regularization and data augmentation.
-- The analysis emphasizes the importance of robust evaluation strategies in medical imaging tasks.
-- Benchmarking multiple models was essential to identify performance limitations.
+- A significant gap between validation and test performance indicates overfitting behavior
+- Model performance does not fully generalize to unseen data, highlighting the importance of robust regularization and data augmentation strategies
+- Benchmarking multiple CNN architectures was essential to identify performance limitations
+- Evaluation results emphasize the importance of reliable validation strategies in medical imaging tasks
 
 ## Interpretability (Grad-CAM)
 
-To improve model transparency, Grad-CAM was used to visualize which regions of the mammograms influenced the model's predictions.
-Representative examples were selected from different prediction outcomes (True Positive, False Positive, True Negative, False Negative) 
-to better understand model behavior.
+To improve model transparency, Grad-CAM was used to visualize the regions of mammograms influencing the model's predictions across different cases. Representative examples were selected from different prediction outcomes (True Positive, False Positive, True Negative, False Negative) to better understand model behavior.
 
-Two representative cases are highlighted:
+### Figure 4. Correct prediction with aligned attention
 
-### Figure 3. Correct prediction with aligned attention
+![Figure 4 - Grad-CAM Good Case](results/gradcam_roi_aligned.png)
 
-![Figure 3 - Grad-CAM Good Case](results/gradcam_roi_aligned.png)
+**Fig. 4:** In this example, the model focuses on the region corresponding to the ground-truth lesion mask. This suggests that it is learning clinically meaningful features, with minor spatial discrepancies.
 
-**Fig. 3:** In this case, the model focuses on the same region identified as pathological in the ground-truth lesion mask. This suggests that the model is learning clinically meaningful features with minor spatial discrepancies.
+### Figure 5. Misaligned attention (failure case)
 
-### Figure 4. Misaligned attention (failure case)
+![Figure 5 - Grad-CAM Bad Case](results/gradcam_attention_misaligned.png)
 
-![Figure 4 - Grad-CAM Bad Case](results/gradcam_attention_misaligned.png)
-
-**Fig. 4:** Here, the model prediction is incorrect and the attention is not aligned with the lesion region. This highlights a limitation of the model and suggests that it may rely on spurious patterns with low spatial generalization and potential overfitting to non-clinical features.
+**Fig. 5:** In this case, the model prediction is incorrect and the attention is not aligned with the lesion region. This highlights limitations in generalization and suggests potential reliance on non-clinical features.
 
 ### Findings
 
-- A qualitative Grad-CAM analysis on a limited subset of test images shows that, in several cases, the model focuses on clinically relevant regions corresponding to annotated ROIs.
-- However, in some failure cases, the model attention is partially misaligned with respect to the annotated regions, suggesting limitations in generalization and feature localization.
+A qualitative Grad-CAM analysis was conducted on the selected test cases.
 
-These observations highlight both the strengths and limitations of the model, providing useful insight into its reliability in medical imaging applications.
+- In some instances, the model attends to clinically relevant regions corresponding to annotated ROIs
+- In other cases, attention is partially misaligned with lesion regions, indicating limitations in spatial generalization and localization consistency
+
+These results highlight both the strengths and limitations of the model in terms of interpretability and clinical reliability.
 
 ## Limitations
 
-- Limited dataset size
-- No significant class imbalance was observed in the test set; however, the training set distribution was not explicitly verified, which may still influence model behavior during training
-- Use of full mammograms without advanced preprocessing
-- No external validation dataset
-- Models may not generalize well to real-world clinical settings without further validation
+- Limited dataset size, which may affect model generalization to unseen clinical data
+- Use of full mammograms without advanced image preprocessing techniques (e.g., segmentation or lesion-focused cropping) for model training
+- No external validation dataset for assessing real-world performance
+- Model generalization to clinical environments remains uncertain without further validation
 
 ## Future Work
 
@@ -152,33 +178,30 @@ These observations highlight both the strengths and limitations of the model, pr
 
 ## How to Run
 
-This project was developed and trained using Google Colab and Kaggle environments.
+This project was developed using Python in Google Colab and Kaggle environments.
 
-To explore the project locally:
+The workflow is organized as a sequence of notebooks covering:
+data preprocessing, exploratory analysis, model training, evaluation, and interpretability.
 
-```bash
-pip install -r requirements.txt
-jupyter notebook
-```
+To reproduce the workflow, install dependencies and run the notebooks in sequential order.
 
-Then open:
-`notebooks/model_development.ipynb`
-
-Alternatively, you can run the notebook directly on Google Colab or Kaggle.
+Alternatively, the project can be run directly in Google Colab or Kaggle.
 
 ## Repository Structure
 
-- notebooks/ → exploratory analysis and model development
-- src/ → reusable code for preprocessing, model architecture, and evaluation
+- notebooks/ → exploratory analysis and model development (in progress)
 - results/ → performance metrics and visual outputs (ROC curves, training curves, Grad-CAM)
-- requirements.txt → dependencies required to run the project
+- data/ → tabular datasets used during analysis and model development (to be defined)
+- future work includes modularizing reusable code and environment setup
 
 ## Technologies Used
 
-- Python  
-- TensorFlow / Keras – CNN model development and training  
-- NumPy / Pandas – data preprocessing and manipulation  
-- Matplotlib – visualization of training metrics and results
+- Python
+- TensorFlow / Keras – CNN model development and training
+- Pandas / NumPy – data manipulation and preprocessing
+- SQLite – SQL-based exploratory data analysis and validation
+- Matplotlib / Seaborn – data visualization and training metrics analysis
+- Google Colab / Kaggle – development and experimentation environments
 
 ## About the Author
 
@@ -188,6 +211,7 @@ Focus on Machine Learning, Data Analysis, and Scientific Programming
 ## Key Takeaways
 
 - Built and trained CNN models for medical image classification using a real-world dataset
+- Developed a structured exploratory data analysis pipeline using Pandas and SQL, including dataset validation and leakage analysis
 - Applied deep learning techniques, including regularization and data augmentation, to improve model generalization
 - Evaluated model performance using clinically relevant metrics such as ROC-AUC
 - Investigated model interpretability using Grad-CAM, analyzing both correct predictions and failure cases
