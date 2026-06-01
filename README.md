@@ -19,8 +19,14 @@ Specifically:
 - Mass-Test Full Mammogram Images (DICOM) → final testing
 - Mass-Test ROI and Cropped Images (DICOM) → interpretability (Grad-CAM comparison with lesion regions)
 
-Note: The dataset is not included in this repository due to its large size and usage restrictions.  
-However, you can access and download the dataset directly from [The Cancer Imaging Archive - CBIS-DDSM](https://www.cancerimagingarchive.net/collection/cbis-ddsm/).
+Note: The dataset is not included in this repository due to its large size and in compliance with the TCIA data usage policy. Metadata CSV files may be added in future updates to support reproducibility.
+
+The image dataset can be accessed and downloaded directly from [The Cancer Imaging Archive - CBIS-DDSM](https://www.cancerimagingarchive.net/collection/cbis-ddsm/).
+
+Data Citation (required by TCIA):
+Sawyer-Lee, R., Gimenez, F., Hoogi, A., & Rubin, D. (2016).
+Curated Breast Imaging Subset of Digital Database for Screening Mammography (CBIS-DDSM) [Data set].
+The Cancer Imaging Archive. [DOI: 10.7937/K9/TCIA.2016.7O02S9CY](https://doi.org/10.7937/K9/TCIA.2016.7O02S9CY)
 
 ## Objective
 
