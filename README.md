@@ -12,16 +12,18 @@ Early detection of breast cancer is critical for improving patient outcomes. Thi
 
 ## Dataset
 
-The datasets used in this project are from the CBIS-DDSM collection available on The Cancer Imaging Archive.
-Specifically:
+This project is based on publicly available medical imaging data from the CBIS-DDSM dataset hosted by The Cancer Imaging Archive.
+Specifically, the dataset includes:
 
-- Mass-Training Full Mammogram Images (DICOM) → training & validation
-- Mass-Test Full Mammogram Images (DICOM) → final testing
-- Mass-Test ROI and Cropped Images (DICOM) → interpretability (Grad-CAM comparison with lesion regions)
+- Mass-Training Full Mammogram Images (DICOM) used for training and validation
+- Mass-Test Full Mammogram Images (DICOM) used for final testing
+- Mass-Test ROI and Cropped Images (DICOM) used for interpretability (Grad-CAM analysis with lesion regions)
+- Clinical annotation CSV files describing pathology and lesion characteristics (e.g., mass shape, assessment, breast density)
+- Technical metadata CSV files used to link imaging data with clinical records (e.g., image paths, ROI references)
 
-Note: The dataset is not included in this repository due to its large size and in compliance with the TCIA data usage policy. Metadata CSV files may be added in future updates to support reproducibility.
+Note: The imaging dataset is not included in this repository due to its size and in compliance with the TCIA data usage policy. Clinical annotation and technical metadata CSV files are intentionally excluded to maintain a clean and focused project structure, avoiding redundancy since they are directly available from the original dataset.
 
-The image dataset can be accessed and downloaded directly from [The Cancer Imaging Archive - CBIS-DDSM](https://www.cancerimagingarchive.net/collection/cbis-ddsm/).
+The full dataset is publicly available and can be downloaded from [The Cancer Imaging Archive - CBIS-DDSM](https://www.cancerimagingarchive.net/collection/cbis-ddsm/).
 
 Data Citation (required by TCIA):
 Sawyer-Lee, R., Gimenez, F., Hoogi, A., & Rubin, D. (2016).
@@ -44,7 +46,7 @@ Before model development, a structured exploratory data analysis workflow was co
 
 The analysis included:
 
-- clinical and metadata integration
+- integration of clinical annotation data and technical metadata
 - composite key construction for reliable merging
 - missing and duplicated values assessment
 - pathology class distribution analysis
@@ -216,7 +218,7 @@ Focus on Machine Learning, Data Analysis, and Scientific Programming
 
 ## Key Takeaways
 
-- Built and trained CNN models for medical image classification using a real-world dataset
+- Built and trained CNN models for medical imaging classification using a real-world dataset
 - Developed a structured exploratory data analysis pipeline using Pandas and SQL, including dataset validation and leakage analysis
 - Applied deep learning techniques, including regularization and data augmentation, to improve model generalization
 - Evaluated model performance using clinically relevant metrics such as ROC-AUC
