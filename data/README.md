@@ -10,6 +10,10 @@ The project relies on three main types of data:
 - **Clinical annotation data**: CSV files containing diagnostic and lesion-related information such as pathology (benign/malignant), mass shape, assessment, and breast density.
 - **Technical metadata**: CSV files used to link imaging data with clinical annotations, including image paths, ROI references, and acquisition-related information.
 
+## Data Loading Note
+
+CSV file names have been slightly modified to clearly distinguish between training and test sets, improving readability and pipeline organization. The original files can be obtained from the CBIS-DDSM dataset.
+
 ## Data Availability
 
 The dataset is not included in this repository due to the size of the imaging data and in compliance with the TCIA data usage policy. Clinical annotation and technical metadata CSV files are also excluded to maintain a clean and focused project structure.
