@@ -17,7 +17,7 @@ Specifically, the dataset includes:
 
 - Mass-Training Full Mammogram Images (DICOM) used for training and validation
 - Mass-Test Full Mammogram Images (DICOM) used for final testing
-- Mass-Test ROI and Cropped Images (DICOM) used for interpretability (Grad-CAM analysis with lesion regions)
+- Mass-Test ROI, cropped images, and lesion masks (DICOM) used for interpretability (Grad-CAM analysis against ground-truth lesion annotations)
 - Clinical annotation CSV files describing pathology and lesion characteristics (e.g., mass shape, assessment, breast density)
 - Technical metadata CSV files used to link imaging data with clinical records (e.g., image paths, ROI references)
 
