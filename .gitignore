@@ -9,7 +9,7 @@ venv/
 # Jupyter
 .ipynb_checkpoints/
 
-# Data (DO NOT COMMIT DATASETS)
+# Data (raw datasets not included in repo)
 data/
 
 # Models
@@ -24,3 +24,11 @@ data/
 # OS files
 .DS_Store
 Thumbs.db
+
+# ML / DL frameworks cache (optional)
+.keras/
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
