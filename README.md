@@ -186,21 +186,28 @@ These results highlight both the strengths and limitations of the model in terms
 
 ## How to Run
 
-This project was developed using Python in Google Colab and Kaggle environments.
+This project was developed in Google Colab and Kaggle environments.
 
 The workflow is organized as a sequence of notebooks covering:
-data preprocessing, exploratory analysis, model training, evaluation, and interpretability.
+data preprocessing, exploratory data analysis, data integration (merging tabular data and metadata), and convolutional neural network (CNN) modeling on mammography images, including evaluation and interpretability.
 
-To reproduce the workflow, install dependencies and run the notebooks in sequential order.
+To reproduce the workflow, install the required dependencies and run the notebooks in sequential order.
 
-Alternatively, the project can be run directly in Google Colab or Kaggle.
+Alternatively, the project can be executed directly in Google Colab or Kaggle.
+
+Install dependencies using:
+
+```bash
+pip install -r requirements.txt
+```
 
 ## Repository Structure
 
-- notebooks/ → exploratory analysis and model development (in progress)
-- results/ → performance metrics and visual outputs (ROC curves, training curves, Grad-CAM)
-- data/ → tabular datasets used during analysis and model development (to be defined)
-- future work includes modularizing reusable code and environment setup
+- `notebooks/` → exploratory data analysis and CNN modeling on mammography images (additional notebooks in development)
+- `results/` → model performance metrics and visual outputs (ROC curves, training curves, Grad-CAM visualizations)
+- `data/` → dataset structure (all data must be downloaded from the original TCIA source and organized locally following the project structure)
+
+Future improvements include modularizing reusable code and improving pipeline reproducibility.
 
 ## Technologies Used
 
