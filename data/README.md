@@ -27,3 +27,16 @@ Users must abide by the TCIA Data Usage Policy and provide proper attribution wh
 Sawyer-Lee, R., Gimenez, F., Hoogi, A., & Rubin, D. (2016).
 Curated Breast Imaging Subset of Digital Database for Screening Mammography (CBIS-DDSM) [Data set].
 The Cancer Imaging Archive. https://doi.org/10.7937/K9/TCIA.2016.7O02S9CY
+
+## Expected Directory Structure
+
+After downloading the dataset, organize the files as follows:
+
+data/
+├── raw/
+├── processed/
+└── README.md
+
+The project follows a simple data workflow:
+- `raw/`: original, immutable data;
+- `processed/`: cleaned, merged, and validated datasets used for downstream analysis and export.
