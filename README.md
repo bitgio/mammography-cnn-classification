@@ -203,8 +203,8 @@ pip install -r requirements.txt
 
 ## Repository Structure
 
-- `notebooks/` → exploratory data analysis and CNN modeling on mammography images (additional notebooks in development)
-- `results/` → model performance metrics and visual outputs (ROC curves, training curves, Grad-CAM visualizations)
+- `notebooks/` → exploratory data analysis workflow on structured diagnostic data and metadata, with additional deep learning notebooks in development
+- `results/` → selected model performance metrics and visual outputs (ROC curves, training curves, Grad-CAM visualizations)
 - `data/` → dataset structure (all data must be downloaded from the original TCIA source and organized locally following the project structure)
 
 Future improvements include modularizing reusable code and improving pipeline reproducibility.
